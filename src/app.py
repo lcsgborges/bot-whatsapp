@@ -31,15 +31,12 @@ def enviar():
     enviar_mensagem()
     messagebox.showinfo("Envio", "Mensagens enviadas!")
 
-
-# Configurações:
 root = tk.Tk()
-root.title("Bot Pizzaria Vó Nice")
+root.title("Bot Whatsapp")
 root.geometry("1000x800")
 root.configure(bg="#f0f0f0")
 font_style = ("Arial", 12)
 
-# Labels:
 label_numero = tk.Label(root, text="Número (DDD + 9 dígitos):", font=font_style, bg="#f0f0f0")
 label_numero.pack()
 entry_numero = tk.Entry(root, font=font_style)
@@ -77,7 +74,6 @@ btn_listar.pack()
 contatos_texto = scrolledtext.ScrolledText(root, height=6, font=font_style)
 contatos_texto.pack()
 
-# Editor de mensagem
 label_mensagem = tk.Label(root, text="Mensagem (use {nome} para personalizar):", font=font_style, bg="#f0f0f0")
 label_mensagem.pack()
 

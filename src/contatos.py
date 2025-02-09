@@ -1,9 +1,7 @@
 import os
 
-# Obtém o caminho do arquivo a partir de uma variável de ambiente, com um valor padrão relativo
 contatos_arquivo = os.getenv('CONTATOS_ARQUIVO', '../data/contatos.txt')
 
-# Define o caminho completo
 CONTATOS_ARQUIVO = os.path.join(os.path.dirname(__file__), contatos_arquivo)
 
 def ler_contatos():
@@ -29,17 +27,15 @@ def listar_contatos():
     return [f"{nome}: {numero}" for numero, nome in contatos]
 
 def editar_contato(numero_antigo, novo_numero, novo_nome):
-    """Edita um contato existente no arquivo."""
     contatos = ler_contatos()
     contato_encontrado = False
 
     with open(CONTATOS_ARQUIVO, "w") as file:
         for numero, nome in contatos:
-            # Adiciona +55 ao número antigo para garantir a comparação
             numero_com_ddd = f"+55{numero_antigo}"
 
-            if numero_com_ddd == numero:  # Comparando o número com o +55 já no arquivo
-                file.write(f"+55{novo_numero};{novo_nome}\n")  # Adiciona o +55 ao novo número
+            if numero_com_ddd == numero:  
+                file.write(f"+55{novo_numero};{novo_nome}\n") 
                 contato_encontrado = True
             else:
                 file.write(f"{numero};{nome}\n")

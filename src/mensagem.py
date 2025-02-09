@@ -1,13 +1,10 @@
 import os
 
-# Obtém o caminho do arquivo de mensagem a partir de uma variável de ambiente, com um valor padrão relativo
 mensagem_arquivo = os.getenv('MENSAGEM_ARQUIVO', '../data/mensagem.txt')
 
-# Define o caminho completo para o arquivo de mensagem
 MENSAGEM_ARQUIVO = os.path.join(os.path.dirname(__file__), mensagem_arquivo)
 
 def ler_mensagem():
-    """Lê o conteúdo da mensagem padrão do arquivo."""
     try:
         with open(MENSAGEM_ARQUIVO, "r", encoding="utf-8") as file:
             return file.read()
@@ -16,7 +13,6 @@ def ler_mensagem():
     except Exception as e:
         return f"Erro ao ler o arquivo: {e}"
 
-# Lê a mensagem padrão do arquivo
 MENSAGEM_PADRAO = ler_mensagem()
 
 def carregar_mensagem():
